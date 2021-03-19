@@ -15,6 +15,9 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
+// import API
+import Api from '../api';
+
 /**
 * @author Milos Tanaskovic
 * @function Header

@@ -12,6 +12,8 @@
     npm install @material-ui/core
     npm install @material-ui/icons
 
+    npm i axios
+
 **## 4.0 create page folder for upgrade this app (optional)**
 
 ## 4. structure of components
@@ -31,6 +33,7 @@
 
 ## 5. create api folder
 
+     (check api in POSTMAN)
      endpoints.js
      fetchFunctions.js
      index.js

@@ -1,3 +1,53 @@
+# Getting Started With Organization covid 19-app
+
+## 1. create-react-app covid19-app
+
+    cd covid-19-products
+    npm start
+
+## 2. cleanup src file
+
+## 3. npm install sass or material-ui && axios or fetch ...
+
+## 4. structure of components
+
+### 1) App.js -> main components
+
+- import all other components
+- import materialui-core
+  ### 2) Create components file
+  - Header.js
+  - Products.js
+  - SingleProduct.js
+  - MyCart.js
+  - Footer.js
+
+## 5. create api folder
+
+    - endpoints.js
+    - fetchFunctions.js
+    - index.js
+    - requestWrappers.js
+
+## 6. create constants folder
+
+    - routes.js
+    - urls.js
+
+---------------redux - state managment ----------------
+
+## 8. create actions folder
+
+## 9. create reducers folder
+
+## 7. index.js
+
+    - setup redux
+    - applyMiddleware(thunk)
+    - Provider
+
+==================================================================================================
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

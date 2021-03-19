@@ -11,28 +11,30 @@
 
 ## 4. structure of components
 
-### 1) App.js -> main components
+    ### 1) App.js -> main components
 
-- import all other components
-- import materialui-core
-  ### 2) Create components file
-  - Header.js
-  - Products.js
-  - SingleProduct.js
-  - MyCart.js
-  - Footer.js
+    import all other components
+    import materialui-core
+
+    ### 2) Create components file
+
+    Header.js
+    Products.js
+    SingleProduct.js
+    MyCart.js
+    Footer.js
 
 ## 5. create api folder
 
-    - endpoints.js
-    - fetchFunctions.js
-    - index.js
-    - requestWrappers.js
+     endpoints.js
+     fetchFunctions.js
+     index.js
+     requestWrappers.js
 
 ## 6. create constants folder
 
-    - routes.js
-    - urls.js
+     routes.js
+     urls.js
 
 ---------------redux - state managment ----------------
 
@@ -42,11 +44,11 @@
 
 ## 7. index.js
 
-    - setup redux
-    - applyMiddleware(thunk)
-    - Provider
+     setup redux
+     applyMiddleware(thunk)
+     Provider
 
-==================================================================================================
+==============================================================
 
 # Getting Started with Create React App
 

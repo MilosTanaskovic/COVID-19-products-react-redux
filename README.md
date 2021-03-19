@@ -9,6 +9,11 @@
 
 ## 3. npm install sass or material-ui && axios or fetch ...
 
+    npm install @material-ui/core
+    npm install @material-ui/icons
+
+**## 4.0 create page folder for upgrade this app (optional)**
+
 ## 4. structure of components
 
     ### 1) App.js -> main components

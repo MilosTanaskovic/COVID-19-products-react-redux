@@ -10,10 +10,7 @@ import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import MoreIcon from '@material-ui/icons/MoreVert';
 
 // import API
 import Api from '../api';
@@ -29,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
   },
   basketButton: {
     marginRight: theme.spacing(2),
+    display: 'block',
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
   },
   title: {
     display: 'none',
@@ -36,45 +37,14 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
+  titleMobile: {
+   display: 'block',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+      display: 'none',
     },
   },
   sectionDesktop: {
-    display: 'none',
+    display: 'block',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
@@ -134,24 +104,18 @@ const Header = (props) => {
            noWrap>
             Melio - Health, Wellness & Fitness
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
+          <Typography 
+           className={classes.titleMobile} 
+           variant="h6" 
+           noWrap>
+            Melio
+          </Typography>
+          
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>      
             <IconButton
               edge="end"
-              aria-label="account of current user"
+              aria-label="basket of current products"
               aria-controls={BasketId}
               aria-haspopup="true"
               onClick={handleBasketOpen}

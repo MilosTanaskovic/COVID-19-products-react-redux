@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { makeStyles } from '@material-ui/core/styles';
+// material-ui
+import useStyles from './ProductStyles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -14,34 +14,11 @@ import Typography from '@material-ui/core/Typography';
 * @function Products
 **/
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  card: {
-    width: 300,
-  },
-  cardActions: {
-    display: 'flex',
-    justifyContent: 'space-around'
-  },
-  title: {
-    fontSize: 22,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-  price: {
-    fontSize: 21,
-    color: 'primary',
-  }
-}));
-
-const Products = ({pruduct}) => {
+const Products = ({product}) => {
   const classes = useStyles();
 
   return(
-    <Grid key={pruduct} item>
+    <Grid key={product} item>
 
       <Card className={classes.card}>
         <CardContent>

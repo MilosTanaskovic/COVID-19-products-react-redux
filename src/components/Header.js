@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 // material-ui
-import { fade, makeStyles } from '@material-ui/core/styles';
+import useStyles from './HeaderStyles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -15,43 +15,6 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 * @author Milos Tanaskovic
 * @function Header
 **/
-
-const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
-  basketButton: {
-    marginRight: theme.spacing(2),
-    display: 'block',
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
-  titleMobile: {
-   display: 'block',
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
-  },
-  sectionDesktop: {
-    display: 'block',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-}));
 
 const Header = (props) => {
   const classes = useStyles();

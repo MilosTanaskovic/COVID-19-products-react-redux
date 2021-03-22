@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+// import component
+import MyCart from './MyCart';
 // material-ui
 import useStyles from './HeaderStyles';
 import AppBar from '@material-ui/core/AppBar';
@@ -6,10 +8,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+
+import './Header.css';
 
 /**
 * @author Milos Tanaskovic
@@ -33,6 +36,7 @@ const Header = (props) => {
   const BasketId = 'primary-search-shopping-cart';
   const renderBasket = (
     <Menu
+      className={classes.menu}
       anchorEl={anchorEl}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       id={BasketId}
@@ -40,8 +44,8 @@ const Header = (props) => {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isBasketOpen}
       onClose={handleBasketClose}
-    >
-      <MenuItem >items</MenuItem>
+    >    
+      <MyCart />   
     </Menu>
   );
 

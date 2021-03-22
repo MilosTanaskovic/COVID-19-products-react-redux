@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import component
 import Product from '../components/Product';
 // material-ui
@@ -18,7 +18,19 @@ import Api from '../api';
 const MainPage = (props) => {
  const classes = useStyles();
  // store API results
- const [results, setResults] = useState([1,2,3,4,5,6,7]);
+ const [results, setResults] = useState([]);
+ 
+ const fetchProducts = async () => {
+   const products = await Api.getProducts();
+    setResults(products);
+ }
+
+  useEffect(() => {
+   fetchProducts()
+  }, [])
+  
+  console.log(results)
+ 
 
   return(
     <Container className={classes.root}>
@@ -28,13 +40,13 @@ const MainPage = (props) => {
      >
       {/* display results from API */}
       {/* list of products */}
-        <Grid container justify="center" spacing="3">
+        {/* <Grid container justify="center" spacing="3">
           {
             results.map((product) => (
               <Product product={product} />
             ))
           }
-        </Grid>
+        </Grid> */}
       {/* list of products */}
      </Typography>
     </Container>

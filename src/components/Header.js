@@ -34,20 +34,6 @@ const Header = (props) => {
   };
 
   const BasketId = 'primary-search-shopping-cart';
-  const renderBasket = (
-    <Menu
-      className={classes.menu}
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={BasketId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isBasketOpen}
-      onClose={handleBasketClose}
-    >    
-      <MyCart />   
-    </Menu>
-  );
 
   return(
    <div className={classes.grow}>
@@ -95,7 +81,22 @@ const Header = (props) => {
         
         </Toolbar>
       </AppBar>
-      {renderBasket}
+
+      { isBasketOpen && (
+        <Menu
+          className={classes.menu}
+          anchorEl={anchorEl}
+          anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+          id={BasketId}
+          keepMounted
+          transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+          open={isBasketOpen}
+          onClose={handleBasketClose}
+        >    
+          <MyCart />   
+        </Menu>
+
+      ) }
     </div>
    )
   }

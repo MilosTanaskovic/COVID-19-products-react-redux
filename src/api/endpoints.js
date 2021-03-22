@@ -1,4 +1,3 @@
 export default {
- searchProduct: `/search/products`,
- 
+ products: `/products/public`,
 };

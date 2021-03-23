@@ -46,11 +46,24 @@
 
 ---------------redux - state managment ----------------
 
-## 8. create actions folder
+## 8. install redux
 
-## 9. create reducers folder
+    npm install redux react-redux redux-thunk redux-devtools-extension
 
-## 7. index.js
+## 9. create setup for redux
+
+    - store for configuration
+    - index.js or App.js - wrapped components with Ptovider
+    - reducers
+    - actions
+
+## 10. create store file
+
+## 11. create reducers file
+
+## 12. create actions folder
+
+## 11. index.js
 
      setup redux
      applyMiddleware(thunk)

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 // import component
 import MyCart from './MyCart';
+// react-redux
+import { connect } from 'react-redux'
 // material-ui
 import useStyles from './HeaderStyles';
 import AppBar from '@material-ui/core/AppBar';
@@ -100,6 +102,5 @@ const Header = (props) => {
     </div>
    )
   }
-
 
 export default Header

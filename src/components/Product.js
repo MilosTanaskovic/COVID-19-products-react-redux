@@ -8,13 +8,16 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+// react-redux
+import { connect } from 'react-redux';
+import { addBasket } from '../actions/addAction';
 /**
 * @author Milos Tanaskovic
 * @function Products
 **/
 
 const Product = (props) => {
+  console.log(props);
   const {key, name, title, desc, spec, price} = props;
   
   const classes = useStyles();
@@ -48,7 +51,12 @@ const Product = (props) => {
           <Typography className={classes.price} color="textSecondary">
             {price}$
           </Typography>
-          <Button size="small" variant="contained" color="primary">
+          <Button 
+            size="small" 
+            variant="contained" 
+            color="primary" 
+            onClick={props.addBasket}
+          >
             Add to cart
           </Button>
         </CardActions>
@@ -59,4 +67,4 @@ const Product = (props) => {
   }
 
 
-export default Product
+export default connect(null, { addBasket })(Product);

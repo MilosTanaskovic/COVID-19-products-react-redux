@@ -17,21 +17,19 @@ import Api from '../api';
 
 const MainPage = (props) => {
  const classes = useStyles();
+ const [spacing, setSpacing] = useState(3);
  // store API results
  const [results, setResults] = useState([]);
  
  const fetchProducts = async () => {
-   const products = await Api.getProducts();
-    setResults(products);
+   const products = await (await Api.getProducts());
+    setResults(products.data.docs);
  }
 
   useEffect(() => {
    fetchProducts()
   }, [])
-  
-  console.log(results)
  
-
   return(
     <Container className={classes.root}>
      <Typography 
@@ -40,13 +38,20 @@ const MainPage = (props) => {
      >
       {/* display results from API */}
       {/* list of products */}
-        {/* <Grid container justify="center" spacing="3">
+        <Grid container justify="center" spacing={spacing}>
           {
-            results.map((product) => (
-              <Product product={product} />
+            results.map((product, index) => ( 
+              <Product 
+                key={index}
+                name={product.name} 
+                title={product.m1} 
+                desc={product.description} 
+                spec={product.urlTitle}
+                price={product.price}
+              />
             ))
           }
-        </Grid> */}
+        </Grid> 
       {/* list of products */}
      </Typography>
     </Container>

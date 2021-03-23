@@ -14,11 +14,13 @@ import Typography from '@material-ui/core/Typography';
 * @function Products
 **/
 
-const Products = ({product}) => {
+const Product = (props) => {
+  const {key, name, title, desc, spec, price} = props;
+  
   const classes = useStyles();
 
   return(
-    <Grid key={product} item>
+    <Grid key={key} item>
 
       <Card className={classes.card}>
         <CardContent>
@@ -29,22 +31,22 @@ const Products = ({product}) => {
             noWrap 
             gutterBottom
           >
-            COVID-19 PCR afdfdsafafdadsad
+            {name}
           </Typography>
           {/* description */}
           <Typography className={classes.pos} color="textSecondary">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur adipisci sapiente minima veritatis dignissimos facere soluta praesentium fuga. Provident dicta eveniet officiis velit sed veniam eum, ea ducimus vel ipsam.
+            {title}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae officiis autem quis reiciendis aut aspernatur ducimus, itaque porro at, cumque suscipit rerum ipsum nobis id dolore impedit repellat repudiandae neque?
+           {desc}
           </Typography>
           <Typography variant="body2" component="p" noWrap>
-            1 marcador
+            {spec}
           </Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Typography className={classes.price} color="textSecondary">
-            152E
+            {price}$
           </Typography>
           <Button size="small" variant="contained" color="primary">
             Add to cart
@@ -57,4 +59,4 @@ const Products = ({product}) => {
   }
 
 
-export default Products
+export default Product

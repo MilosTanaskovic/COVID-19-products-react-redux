@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import component
 import MyCart from './MyCart';
 // react-redux
 import { connect } from 'react-redux'
+import { getNumbers } from '../actions/getAction';
 // material-ui
 import useStyles from './HeaderStyles';
 import AppBar from '@material-ui/core/AppBar';
@@ -37,6 +38,9 @@ const Header = (props) => {
 
   const BasketId = 'primary-search-shopping-cart';
 
+  useEffect(() => {
+   getNumbers();
+  }, [])
   return(
    <div className={classes.grow}>
       <AppBar position="static">
@@ -73,7 +77,7 @@ const Header = (props) => {
               color="inherit"
             >
               <Badge 
-               badgeContent={4} 
+               badgeContent={props.basketProps.basketNumbers} 
                color="secondary"
               >
                 <ShoppingBasketIcon />
@@ -102,5 +106,8 @@ const Header = (props) => {
     </div>
    )
   }
+const mapStateToProps = state => ({
+   basketProps: state.basketState
+ })
 
-export default Header
+export default connect(mapStateToProps, { getNumbers })(Header)

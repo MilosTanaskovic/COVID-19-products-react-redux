@@ -36,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  menu: {
+    paddingRight: '20px'
+  }
 }));
 
 export default useStyles;

@@ -1,4 +1,5 @@
-import { ADD_PRODUCT_BASKET, GET_NUMBERS_BASKET, INCREASE_QUANTITY, DECREASE_QUANTITY } from '../actions/types';
+import { Store } from '@material-ui/icons';
+import { ADD_PRODUCT_BASKET, GET_NUMBERS_BASKET, INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_PRODUCT } from '../actions/types';
 
 const initalState = {
  basketNumbers: 0,
@@ -91,6 +92,7 @@ export default (state=initalState, action) => {
     productSelected.numbers += 1;
    return {
     ...state,
+    basketNumbers: state.basketNumbers + 1,
     basketCost: state.basketCost + state.products[action.payload].price,
     products: {
       ...state.products,
@@ -101,22 +103,40 @@ export default (state=initalState, action) => {
     productSelected = { ...state.products[action.payload]};
     
     let newBasketCost = 0;
+    let newBasketNumbers = 0;
     if( productSelected.numbers === 0){
       productSelected.numbers = 0;
       newBasketCost = state.basketCost;
+      newBasketNumbers = state.basketNumbers;
     }else {
       productSelected.numbers -= 1;
       newBasketCost = state.basketCost - state.products[action.payload].price;
+      newBasketNumbers = state.basketNumbers - 1;
     }
     
    return {
     ...state,
+    basketNumbers: newBasketNumbers,
     basketCost: newBasketCost,
     products: {
       ...state.products,
       [action.payload]: productSelected
     }
    }
+  case CLEAR_PRODUCT:
+    productSelected = { ...state.products[action.payload]};
+    let numbersBackup = productSelected.numbers;
+    productSelected.numbers = 0;
+    productSelected.inBasket = false;
+    return {
+      ...state,
+      basketNumbers: state.basketNumbers - numbersBackup,
+      basketCost: state.basketCost - (numbersBackup * productSelected.price),
+      products: {
+        ...state.products,
+         [action.payload]: productSelected
+      }
+    }
   default:
    return state;
  }

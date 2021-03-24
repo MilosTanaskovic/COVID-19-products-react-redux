@@ -1,7 +1,7 @@
 import React from 'react'
 // react-redux
 import { connect } from 'react-redux';
-import { productQuantity } from '../actions/productQuantity';
+import { productQuantity, clearProduct } from '../actions/productQuantity';
 // material-ui
 import useStyles from './MyCartStyles';
 import Card from '@material-ui/core/Card';
@@ -11,7 +11,9 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { borders } from '@material-ui/system';
+import Chip from '@material-ui/core/Chip';
+import FaceIcon from '@material-ui/icons/Face';
+import DoneIcon from '@material-ui/icons/Done';
 
 
 /**
@@ -19,7 +21,7 @@ import { borders } from '@material-ui/system';
 * @function MyCart
 **/
 
-const MyCart = ({basketProps, productQuantity}) => {
+const MyCart = ({basketProps, productQuantity, clearProduct}) => {
   console.log(basketProps, productQuantity);
 
   let productsInBasket = [];
@@ -55,6 +57,15 @@ const MyCart = ({basketProps, productQuantity}) => {
                 <Button>{product.numbers}</Button>
                 <Button onClick={() => productQuantity('increase', product.tagName)}>+</Button>
               </ButtonGroup>
+              <Chip
+                icon={<FaceIcon />}
+                clickable
+                onClick={() => clearProduct(product.tagName)}
+                label="x"
+                color="secondary"
+                variant="outlined"
+                deleteIcon={<DoneIcon />}
+              />
             </CardContent>
            ) 
         })
@@ -76,4 +87,4 @@ const mapStateToProps = state => ({
   basketProps: state.basketState
 })
 
-export default connect(mapStateToProps, { productQuantity } )(MyCart)
+export default connect(mapStateToProps, { productQuantity, clearProduct } )(MyCart)

@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    paddingRight: 30,
   },
   title: {
     fontSize: 14,

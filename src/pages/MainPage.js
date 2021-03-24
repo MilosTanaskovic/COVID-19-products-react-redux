@@ -29,7 +29,6 @@ const MainPage = (props) => {
   useEffect(() => {
    fetchProducts()
   }, [])
- 
   return(
     <Container className={classes.root}>
      <Typography 
@@ -40,14 +39,16 @@ const MainPage = (props) => {
       {/* list of products */}
         <Grid container justify="center" spacing={spacing}>
           {
-            results.map((product, index) => ( 
+            results.map((product) => ( 
               <Product 
-                key={index}
+                key={product.id}
                 name={product.name} 
                 title={product.m1} 
                 desc={product.description} 
                 spec={product.urlTitle}
                 price={product.price}
+                inBasket={product.isGroupRestricted}
+                numbers={0}
               />
             ))
           }

@@ -17,9 +17,7 @@ import { addBasket } from '../actions/addAction';
 **/
 
 const Product = (props) => {
-  console.log(props);
   const {key, name, title, desc, spec, price} = props;
-  
   const classes = useStyles();
 
   return(
@@ -55,7 +53,7 @@ const Product = (props) => {
             size="small" 
             variant="contained" 
             color="primary" 
-            onClick={props.addBasket}
+            onClick={() => props.addBasket(props)}
           >
             Add to cart
           </Button>

@@ -7,7 +7,7 @@ export const addBasket = (items) => {
   console.log(items.spec);
   dispatch({
    type: ADD_PRODUCT_BASKET, 
-   payload: { name: items.spec
+   payload: { uniqueName: items.spec
     // product: {
     //  name: items.spec,
     //  price: items.price, 

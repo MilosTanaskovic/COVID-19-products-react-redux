@@ -1,6 +1,7 @@
 import React from 'react'
 // react-redux
 import { connect } from 'react-redux';
+import { productQuantity } from '../actions/productQuantity';
 // material-ui
 import useStyles from './MyCartStyles';
 import Card from '@material-ui/core/Card';
@@ -18,8 +19,8 @@ import { borders } from '@material-ui/system';
 * @function MyCart
 **/
 
-const MyCart = ({basketProps}) => {
-  console.log(basketProps);
+const MyCart = ({basketProps, productQuantity}) => {
+  console.log(basketProps, productQuantity);
 
   let productsInBasket = [];
 
@@ -38,24 +39,23 @@ const MyCart = ({basketProps}) => {
     <Card className={classes.root}>
       {
         productsInBasket.map((product, index) => {
-          console.log(product.name);
+          console.log(product.tagName);
           return(
-          <CardContent className={classes.cardContent}>
-            <Box component="span" m={1}>
-              <Typography variant="h5" component="h2" noWrap>
-                {product.name}
-              </Typography>
-              <Typography className={classes.pos} color="textSecondary">
-                {product.price}
-              </Typography>
-            </Box>
-            <ButtonGroup size="small" aria-label="small outlined button group">
-              <Button>-</Button>
-              <Button>{product.numbers}</Button>
-              <Button>+</Button>
-            </ButtonGroup>
-            
-          </CardContent>
+            <CardContent key={index} className={classes.cardContent}>
+              <Box component="span" m={1}>
+                <Typography variant="h5" component="h2" noWrap>
+                  {product.name}
+                </Typography>
+                <Typography className={classes.pos} color="textSecondary">
+                  {product.price}
+                </Typography>
+              </Box>
+              <ButtonGroup size="small" aria-label="small outlined button group">
+                <Button onClick={() => productQuantity('decrease', product.tagName)}>-</Button>
+                <Button>{product.numbers}</Button>
+                <Button onClick={() => productQuantity('increase', product.tagName)}>+</Button>
+              </ButtonGroup>
+            </CardContent>
            ) 
         })
       }
@@ -76,4 +76,4 @@ const mapStateToProps = state => ({
   basketProps: state.basketState
 })
 
-export default connect(mapStateToProps )(MyCart)
+export default connect(mapStateToProps, { productQuantity } )(MyCart)

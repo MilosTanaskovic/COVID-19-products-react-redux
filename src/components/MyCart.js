@@ -1,7 +1,5 @@
 import React from 'react'
-// react-redux
-import { connect } from 'react-redux';
-import { productQuantity, clearProduct } from '../actions/productQuantity';
+
 // material-ui
 import useStyles from './MyCartStyles';
 import Card from '@material-ui/core/Card';
@@ -14,6 +12,9 @@ import Box from '@material-ui/core/Box';
 import Chip from '@material-ui/core/Chip';
 import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
+// react-redux
+import { connect } from 'react-redux';
+import { productQuantity, clearProduct } from '../actions/productQuantity';
 
 
 /**

@@ -18,6 +18,11 @@ import { addBasket } from '../actions/addAction';
 
 const Product = (props) => {
   const {key, name, title, desc, spec, price} = props;
+  // truncate for description
+  const truncate = (str, n) => {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
+
   const classes = useStyles();
 
   return(
@@ -36,10 +41,10 @@ const Product = (props) => {
           </Typography>
           {/* description */}
           <Typography className={classes.pos} color="textSecondary">
-            {title}
+            {truncate(title, 90)}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-           {desc}
+          <Typography className={classes.desc} color="textSecondary">
+            {truncate(desc, 320)}
           </Typography>
           <Typography variant="body2" component="p" noWrap>
             {spec}

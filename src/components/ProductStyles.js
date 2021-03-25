@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     width: 300,
+    height: 500,
   },
   cardActions: {
     display: 'flex',
@@ -18,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
   pos: {
     marginBottom: 12,
+    minHeight: 90,
+  },
+  desc: {
+    marginBottom: 12,
+    minHeight: 240,
   },
   price: {
     fontSize: 21,

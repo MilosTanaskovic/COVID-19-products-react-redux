@@ -17,7 +17,7 @@ import Api from '../api';
 
 const MainPage = (props) => {
  const classes = useStyles();
- const [spacing, setSpacing] = useState(3);
+ const [spacing, setSpacing] = useState(6);
  // store API results
  const [results, setResults] = useState([]);
  
@@ -29,6 +29,7 @@ const MainPage = (props) => {
   useEffect(() => {
    fetchProducts()
   }, [])
+
   return(
     <Container className={classes.root}>
      <Typography 

@@ -10,8 +10,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Chip from '@material-ui/core/Chip';
-import FaceIcon from '@material-ui/icons/Face';
-import DoneIcon from '@material-ui/icons/Done';
 // react-redux
 import { connect } from 'react-redux';
 import { productQuantity, clearProduct } from '../actions/productQuantity';
@@ -45,7 +43,7 @@ const MyCart = ({basketProps, productQuantity, clearProduct}) => {
           console.log(product.tagName);
           return(
             <CardContent key={index} className={classes.cardContent}>
-              <Box component="span" m={1}>
+              <Box component="span" m={1} className={classes.product}>
                 <Typography variant="h5" component="h2" noWrap>
                   {product.name}
                 </Typography>
@@ -53,19 +51,17 @@ const MyCart = ({basketProps, productQuantity, clearProduct}) => {
                   {product.price}
                 </Typography>
               </Box>
-              <ButtonGroup size="small" aria-label="small outlined button group">
+              <ButtonGroup size="small" aria-label="small outlined button group" className={classes.buttonGroup}>
                 <Button onClick={() => productQuantity('decrease', product.tagName)}>-</Button>
                 <Button>{product.numbers}</Button>
                 <Button onClick={() => productQuantity('increase', product.tagName)}>+</Button>
               </ButtonGroup>
               <Chip
-                icon={<FaceIcon />}
                 clickable
                 onClick={() => clearProduct(product.tagName)}
                 label="x"
                 color="secondary"
                 variant="outlined"
-                deleteIcon={<DoneIcon />}
               />
             </CardContent>
            ) 

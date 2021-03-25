@@ -29,7 +29,7 @@ const MainPage = (props) => {
   useEffect(() => {
    fetchProducts()
   }, [])
-
+console.log(results);
   return(
     <Container className={classes.root}>
      <Typography 

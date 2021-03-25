@@ -1,4 +1,5 @@
 // material-ui
+import { green } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   menu: {
-    paddingRight: '20px'
-  }
+    marginTop: 40,
+  },
 }));
 
 export default useStyles;

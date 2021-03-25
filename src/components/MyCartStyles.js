@@ -17,6 +17,12 @@ const useStyles = makeStyles({
    justifyContent: 'space-between',
    alignItems: 'center',
    width: '20'
+  },
+  product: {
+    width: 150,
+  },
+  buttonGroup: {
+    marginRight: 10,
   }
 });
 
